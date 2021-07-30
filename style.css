@@ -1,0 +1,404 @@
+/*
+This project was made for the Hack Your Future challenge. 
+I have created this site on VS code first so I could work easier while inspecting the elements.
+Resources used other than the material provided: Udemy course "advanced CSS and Sass", Skillshare courses, and a variety of sources online.
+Apologies in advance for my haphazard naming convention.
+ */
+
+/* Colors:
+Font: #E0DBBD 
+Dark font: #BEB79B
+Highlight: #EB1B3B
+highlight background: #6D604F
+background: #302A1C
+Comment: Not all of these color combinations are good according to the constrast checker: https://webaim.org/resources/contrastchecker/
+However, I liked the palette, so I went on with it. Perhaps fdor a real website I would make the red darker so there's more contrast.
+For now, I am sticking to the colors that give the most color contrast.
+ */
+
+/* This is the general code initialization to make sure the site behaves as predicted */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  color: #e0dbbd;
+  background-color: #302a1c;
+  line-height: 1.7;
+  font-size: 20px;
+  font-weight: 400;
+}
+/* Here begins the actual customization */
+a {
+  text-decoration: underline;
+  color: #e0dbbd;
+}
+a:hover,
+a:active,
+a:focus {
+  font-weight: 700;
+  color: #beb79b;
+  text-decoration: line-through;
+}
+nav a {
+  text-decoration: none;
+}
+/* 
+  The font weight here didn't work on "Special Elite" because I only have one size available from Google Fonts, 
+  but it blurs the letters, however, I liked that effect, so I left it in, 
+  since it gives it a bit of a horror film feeling 
+  */
+h3 {
+  font-size: 1.5em;
+  color: #eb1b3af3;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.header-font {
+  font-family: "Special Elite", cursive;
+}
+p {
+  margin-bottom: 20px;
+}
+i {
+  color: #eb1b3b;
+}
+.bold {
+  font-weight: 900;
+  font-size: 24px;
+}
+.hide {
+  position: absolute !important;
+  top: -9999px !important;
+  left: -9999px !important;
+}
+/* I am using this class instead of display:none, since display:none makes things not accessible to screen readers */
+.header {
+  height: 98vh;
+  background-image: linear-gradient(
+      to right top,
+      #302a1cea,
+      #6d604fd0,
+      #eb1b3af3
+    ),
+    url("https://images.pexels.com/photos/326311/pexels-photo-326311.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+  background-size: cover;
+  background-position: top;
+  position: relative;
+}
+/* vh ensures that the header will take 98 percent of whatever device the page is seen at */
+.nav {
+  height: 5vh;
+  width: 100%;
+  background-color: #302a1c;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  z-index: 1;
+}
+/* I've added this box shadow from a box shadow generator */
+.nav-links {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 25px;
+}
+/* 
+This is the code for the animated menu. 
+Inspiration was taken from Safak Kocaoglu's skillshare course on CSS animations.
+For this code to work, JavaScript is needed. 
+One thing Kocaoglu does not take into account is the need to add aria-expanded tags and/or tabindex for the items. 
+Aria tags help with screen readers.
+Arias need to be modified with JavaScript so that users with special needs know when an item has been toggled.
+For this example, I am not adding the required JS for it, since I have limited time and design takes a lot of time (since I am really bad at that)
+*/
+.line-container {
+  margin: 20px;
+  width: 40px;
+  height: 30px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.line {
+  width: 100%;
+  height: 2px;
+  background-color: #e0dbbd;
+  border-radius: 10px;
+  transition: transform 1s ease, opacity 0.5s ease;
+  transform-origin: left;
+}
+.menu-container {
+  background-color: #302a1cda;
+  height: 100vh;
+  width: 15vw;
+  padding: 35px;
+  position: absolute;
+  top: 5vh;
+  left: 0;
+  top: -9999px;
+  left: -9999px;
+  opacity: 0;
+  transition: transform 1s ease, opacity 0.5s ease;
+}
+.menu-container.active {
+  top: 5vh;
+  left: 0;
+  opacity: 1;
+}
+ul {
+  list-style: none;
+}
+ul li::before {
+  content: "\200B";
+}
+.menu-container ul li {
+  margin-bottom: 20px;
+}
+.line-container.active .line:first-child {
+  transform: rotate(45deg);
+}
+.line-container.active .line:nth-child(2) {
+  opacity: 0;
+}
+.line-container.active .line:last-child {
+  transform: rotate(-45deg);
+}
+
+/* end of animated menu code */
+.hero {
+  height: 95%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+}
+.hero-left {
+  width: 60%;
+}
+.heading-primary {
+  font-size: 4em;
+  text-shadow: -1px 4px #eb1b3b, 1px 1px #eb1b3b, 1px 1px #eb1b3b,
+    -3px 1px #eb1b3b;
+  text-align: center;
+  margin-bottom: 60px;
+  animation: appear 5s ease-out;
+}
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.heading-primary-main {
+  text-transform: capitalize;
+}
+.heading-primary-sub {
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 25px;
+}
+a.btn {
+  text-decoration: none;
+}
+.btn:link,
+.btn:visited {
+  text-transform: uppercase;
+  font-weight: 800;
+  padding: 15px 40px;
+  display: inline-block;
+  border-radius: 100px;
+}
+.btn:hover,
+.btn:focus {
+  transform: translateY(-3px);
+  color: #302a1c;
+  box-shadow: 0 10px 20px rgb(0, 0, 0, 0.2);
+}
+.btn:active {
+  transform: translateY(-1px);
+  color: #302a1c;
+  box-shadow: 0 5px 10px rgb(0, 0, 0, 0.2);
+}
+.btn-light {
+  background-color: #e0dbbd;
+  color: #302a1c;
+}
+.hero-right {
+  width: 40%;
+}
+.polaroid {
+  background-color: #fff;
+  width: fit-content;
+  height: 500px;
+  margin: 20px;
+  padding: 15px;
+  box-shadow: 0 0.2rem 1.2rem rgba(0, 0, 0, 0.2);
+  transform: rotate(10deg);
+  transition: transform 1s ease, opacity 0.5s ease;
+}
+.polaroid:hover,
+.polaroid:active,
+.polaroid:focus {
+  transform: rotate(0deg);
+  transition: transform 1s ease, opacity 0.5s ease;
+}
+.photo img {
+  width: 500px;
+  filter: grayscale(100%);
+}
+.polaroid:hover .photo img,
+.polaroid:active .photo img,
+.polaroid:focus .photo img {
+  filter: none;
+}
+.caption {
+  position: absolute;
+  color: #302a1c;
+  bottom: 20px;
+  right: 20px;
+  font-family: "WindSong", cursive;
+  font-size: 30px;
+}
+.article {
+  padding: 25px;
+}
+.article-head {
+  font-size: 2em;
+  text-align: center;
+}
+.article-argument {
+  /* margin: 10vw 2vw; */
+  max-width: 1440px;
+  text-indent: 50px;
+}
+.article-argument.article-argument-center {
+  margin: 10vw auto;
+}
+
+.article-grid {
+  display: grid;
+  margin: 0 auto;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 90px;
+  align-items: start;
+}
+.article-grid-item {
+  grid-column: 1 / span 2;
+  margin-bottom: 50px;
+}
+.old-site-container {
+  grid-column: 2 / -1;
+}
+.table-layout-title {
+  margin: 0 50px 50px 0;
+  text-align: center;
+}
+.ye-olde-site {
+  width: 100%;
+  background-color: #c7c4b7;
+  color: #302a1c;
+  border: 7px groove #beb79b;
+}
+.ye-olde-logo {
+  text-align: left;
+  padding: 10px;
+}
+.website-example-image {
+  width: 300px;
+  padding: 20px;
+  filter: sepia();
+  vertical-align: top;
+}
+ul.article-list li::before {
+  content: "> ";
+  color: #eb1b3b;
+  font-size: 28px;
+}
+.good-table {
+  border-collapse: collapse;
+  width: 100%;
+}
+.good-table td,
+.good-table th {
+  border: 1px solid #beb79b;
+  text-align: left;
+  padding: 8px;
+}
+.floating-image img {
+  width: 15%;
+  filter: sepia();
+  float: left;
+  margin-right: 20px;
+}
+.quote {
+  max-width: 50%;
+  margin: 6vh auto;
+  border-top: 2px solid #eb1b3b;
+  border-bottom: 2px solid #eb1b3b;
+  padding: 15px 0;
+  font-style: italic;
+}
+footer {
+  background-color: #e0dbbd;
+  color: #302a1c;
+  height: 50px;
+  text-align: right;
+}
+/* Media Queries */
+@media screen and (max-width: 600px) {
+  body {
+    font-size: 16px;
+  }
+  .article {
+    padding: 0;
+    width: 100%;
+  }
+  .article-argument {
+    margin: 0;
+  }
+}
+@media screen and (max-width: 1100px) {
+  .article {
+    width: 100%;
+  }
+  .article-argument {
+    margin: 20vw 5vh;
+    max-width: 940px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  body {
+    font-size: 18px;
+  }
+  .hero {
+    position: relative;
+    top: 200px;
+    flex-direction: column;
+  }
+  .hero-right {
+    position: absolute !important;
+    top: -9999px !important;
+    left: -9999px !important;
+  }
+  .article-grid {
+    display: block;
+  }
+}

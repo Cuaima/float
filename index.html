@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hack Your Future</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="app.js"></script>
+    <!-- custom fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700&family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@400;700&family=Special+Elite&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://fonts.googleapis.com/css2?family=WindSong:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+  </head>
+  <body>
+    <!-- The video that goes along with this application is:  -->
+    <!-- This project was made using Visual studio code and moved to codepen, and it's not fully responsive so not all the sizes might work best. -->
+    <!-- To download the original code, go to: -->
+    <!-- I am adding semantic tags because they are better for screen readers. Items in a webpage should be contained by a semantic tag, or else screen reader checkers will complain -->
+      <nav class="nav">
+        <div class="nav-links">
+          <div class="line-container">
+            <div class="line line-1"></div>
+            <div class="line line-2"></div>
+            <div class="line line-3"></div>
+          </div>
+          <div class="menu-container">
+            <ul>
+              <li><a class="menu-link" tabindex="0" href="#">Home</a></li>
+              <li><a class="menu-link" tabindex="0" href="#what-is-float">The Float</a></li>
+              <li><a class="menu-link" tabindex="0" href="#clearfix">Clearfix</a></li>
+              <li><a class="menu-link" tabindex="0" href="#conclusions">Conclusions</a></li>
+            </ul>
+          </div>
+          <div class="logo-box">
+            <a class="header-font" href="#"> You Might Not Need Float </a>
+          </div>
+        </div>
+      </nav>
+      <header class="header">
+      <div class="hero">
+        <div class="hero-left">
+          <h1 class="heading-primary">
+            <span class="heading-primary-main">You might not need</span>
+            <span class="heading-primary-sub">float<span>
+          </h1>
+          <!-- The reason I am adding an a tag instead of a propper button, is that buttons are usually used when sending information to the backend, like in a form. This "button" is more of a link, therefore the a tag -->
+          <a href="#what-is-float" class="btn btn-light" tabindex="0">Learn More</a>
+        </div>
+        <div class="hero-right">  
+            <div class="polaroid">
+              <div class="photo"><img src="https://images.pexels.com/photos/2281793/pexels-photo-2281793.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="a hand holding a floating globe"></div>
+          <p class="caption">Floating or Drowning?</p>
+            </div>
+        </div>
+      </div>
+    </header>
+    <main>
+      <article id="what-is-float" class="article">
+        <div class="article-argument article-argument-center">
+          <h2 class="article-head">The Float</h2>
+          <p>"What is the CSS float property?" You ask, starry eyed, and full of youthful curiosity. 
+            The short story is that it is a property of CSS used to wrap text around images, and in that instance, it is valid to use float. 
+            Sometimes however, float is used as an instrument to layout web pages. 
+            It is easy to imagine that a property that allows us to place items next to each other might be useful when positioning different parts of a website in a dinamic way. 
+            You can place two sections next to each other, float one left, and then float the other right, and then they can be side by side, easy, right?
+           --"So why are you saying I should not use it?" You say, so let me tell you a story... </p>
+        </div>
+        <div class="article-grid article-argument">
+          <div class="">
+            <p>Do you know why the websites from the 90s were so blocky? </p><p>
+              It turns out that back in the day, most websites were constructed in tables. 
+              It makes sense since at the time, there was no reliable way to make sections appear next to each other.
+              A table solved that problem and provided web developers with a reliable way of organizing their content. 
+            </p>
+          </div>
+          <div class="article-grid-item old-site-container">
+            <h3 class="table-layout-title">Behold! Ye olde Website Layout</h3>
+            <table class="ye-olde-site">
+              <thead>
+                <tr>
+                  <th class="ye-olde-logo"><svg xmlns="http://www.w3.org/2000/svg" width="30px" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                  </svg></th>
+                  <th>Ye olde navigation bar</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><img class="website-example-image" src="https://images.pexels.com/photos/220201/pexels-photo-220201.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="the earth from space"></td>
+                  <td>Cupcake ipsum dolor sit amet. Pie pastry gingerbread sweet sesame snaps candy canes pastry powder. Marshmallow I love jelly-o powder cookie. Lemon drops I love pudding I love soufflé marzipan candy. Icing powder tiramisu gingerbread cheesecake.</td>
+                  <td>Ye Olde Sidebar</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="article-grid-item">
+            <p>The problem with tables for layouts, can be summarized like this:</p>
+            <ul class="article-list">
+              <li>It looks very blocky.</li>
+              <li>Many coexisting attributes have been deprecated.</li>
+              <li>You could end up having to nest tables.</li>
+              <li>They are not good with accessibility.</li>
+              <li>Tables are slow to render.</li>
+              <li>Tables are not very responsive.</li>
+            </ul>
+          </div>
+          <div>
+            <p>
+              This a paraphrased summary from Ryan Grist's article <a target="_blank" href="https://css-tricks.com/why-do-some-html-elements-become-deprecated/">"Why Do Some HTML Elements Become Deprecated?"</a>
+            </p>
+            <p> He also says that tables used strictly to show tabular data are alright to use, so something like this is alright: <i class="las la-arrow-right"></i> </p>
+          </div>
+          <div>
+            <table class="good-table">
+              <thead>
+                  <tr>
+                      <th>Yarn Brand</th>
+                      <th>Composition</th>
+                      <th>Color</th>     
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                      <td>Scheepjes</td>
+                      <td>100% acrylic</td>
+                      <td>salmon</td>
+                  </tr>
+                  <tr>
+                      <td>Ricorumi</td>
+                      <td>100% cotton</td>
+                      <td>yellow</td>
+                  </tr>
+                  <tr>
+                      <td>Andes</td>
+                      <td>100% wool</td>
+                      <td>blue</td>
+                  </tr>
+              </tbody>
+          </table>
+          </div>
+
+        </div>
+        <section class="floating-image">
+            <img src="https://images.pexels.com/photos/1275393/pexels-photo-1275393.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="a hand holding a floating globe">
+            <p>So how do you avoid using tables for layouts but keep using diffent columns for engaging content? 
+              Why, at that point in time, we did not have anything like flexbox or the CSS Grid! 
+            So people started using the one thing they had at hand: <span class="bold">the float property.</span></p>
+            <p>Floating images is ok, because you should mostly do it once in a while when you want to wrap text around an image. Such as the case in this section.
+              You could also use something like making a div so it displays as an inline-block, and that way you can get two divs to 
+              "sit" side by side. However, when you start using <span class="bold">float</span> for all of your positioning needs, things start to get messy.</p>
+              <p>In short: with great floating power, comes... a lot of coding magic that not many people know how it's computed?</p>
+        </section>
+      </article>
+      <article id="clearfix" class="article">
+        <div class="article-argument article-argument-center">
+          <h2 class="article-head">Clearfix</h2>
+          <p>So now, we're at the start of a new century and we are using float for our layouts, but we have a problem:
+            float does not always behave the way you would imagine it would. So in order to make the unpredictable predictable,
+            we invented the clearfix. Clearfix is a bunch of code -some say it's a hack- that front-end developers use
+            in order to "clear" a float, so that the floats that follow it do not become affected by the floats above it and act up. Or as Jay Hoffman writes in his article 
+            <a href="https://css-tricks.com/clearfix-a-lesson-in-web-development-evolution/" target="_blank" rel="noopener noreferrer">Clearfix: A Lesson in Web Development Evolution</a>:
+          </p>
+          <p class="quote">"The clearfix, for those unaware, is a CSS hack that solves a persistent bug that occurs when two floated elements are stacked next to each other. When elements are aligned this way, the parent container ends up with a height of 0, and it can easily wreak havoc on a layout. All you might be trying to do is position a sidebar to the left of your main content block, but the result would be two elements that overlap and collapse on each other. To complicate things further, the bug is inconsistent across browsers. The clearfix was invented to solve all that."
+            <span class="header-font">-Jay Hoffman</span>
+          </p>
+          <p>The problem is, that clearfix was just a hack to make float work in ways it was not intended to. With the advent of systems like the CSS Grid, and flexbox
+            there is little to no incentive to ise float to adjust your website's sections. One of the main problems in moving on to more modern 
+            ways of working was the fact that older browsers still struggled to adapt to flexbox even by 2017. A company that specialized
+            in making apps for the older generations would have a harder time adapting to new ways of design. However, by 2020, most major 
+            browsers not only accept flexbox as viable, but also the CSS grid. But hey, it's not just me saying this.
+          </p>
+
+        </div>
+        </article>
+        <article id="conclusions" class="article">
+          <div class="article-argument article-argument-center">
+            <h2 class="article-head">Conclusions</h2>
+            <p>You might not need float. It might be useful for you to know that it exists, but in the current state of css
+              float might not be something you want to dedicate your time learning its ins and outs. 
+              To start with, float was not made for layout purpuses. If you are a senior developer, I understand the pain and 
+              hard work that may have gone into learning how to organize your layout just right. I understand that a couple of years
+              means a lifetime of changes in web development, and it might be tempting to take refuge in your own little corner of the internet.
+              The corner where you can make a fully responsive app in 30 minutes, because your fingers already know all the shortcuts and all the tricks, but trust me, 
+              you have to learn new tricks. The world won't wait for you. If you're just starting your journey in HTML and CSS, 
+              make sure you keep up with current trends. By the time you have a grasp of a concept, the world might have moved on to something new, but 
+              you've got this. Just keep moving forward. 
+            </p>
+          </div>
+          </article>
+    </main>
+    <footer class="header-font"><i class="las la-dragon"></i>Made with <i class="lar la-heart"></i> by Cuaima (Claudia Yanez).</footer>
+  </body>
+</html>
